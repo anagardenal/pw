@@ -1,58 +1,62 @@
 <?php
 include 'lista_produtos.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>atv-catalogo</title>
+    <title>Catálogo Simples</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
-            background: #292929
-        }
-
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            background: #1f1f1f;
         }
 
         .card {
-            border-radius: 15px;
+            border-radius: 10px;
         }
 
+        .card img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        button {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+        }
     </style>
 </head>
 
 <body>
 
-<div class="container mt-5 text-center">
-    <div class="row justify-content-center">
+<div class="container mt-4">
+    <div class="row">
 
         <?php foreach ($produtos as $produto): ?>
 
-            <div class="col-md-4 mb-4 d-flex justify-content-center">
-                <div class="card h-100 shadow text-center" style="width: 18rem;">
+            <div class="col-md-4 mb-3">
+                <div class="card">
 
-                    <img src="<?php echo $produto['imagem']; ?>" class="card-img-top">
+                    <img src="<?= $produto['imagem']; ?>">
 
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">
-                            <?php echo $produto['nome']; ?>
-                        </h5>
+                    <div class="card-body">
+                        <h5><?= $produto['nome']; ?></h5>
 
-                        <p class="card-text text-muted">
-                            <?php echo $produto['descricao']; ?>
+                        <p><?= $produto['descricao']; ?></p>
+
+                        <p>
+                            <strong>
+                                R$ <?= number_format($produto['valor'], 2, ',', '.'); ?>
+                            </strong>
                         </p>
 
-                        <p class="mt-auto fs-5 text-success fw-bold">
-                            R$ <?php echo number_format($produto['valor'], 2, ',', '.'); ?>
-                        </p>
-
-                        <a href="#" class="btn btn-primary mt-2">Ver Mais</a>
+                        <button>Ver mais</button>
                     </div>
 
                 </div>
