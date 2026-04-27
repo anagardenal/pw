@@ -15,10 +15,6 @@ include 'lista_produtos.php';
             background: #1f1f1f;
         }
 
-        .card {
-            border-radius: 10px;
-        }
-
         .card img {
             height: 180px;
             object-fit: cover;
