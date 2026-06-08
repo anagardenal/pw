@@ -1,11 +1,15 @@
 <?php
-function consultarTodosCarros($codigoMysql, $conexao)
+function consultarTodosCarros($codigoMysql)
 {
+    global $conexao;
 $resultadoConsulta = $conexao->query($codigoMysql);
 $listaCarros = $resultadoConsulta->fetchAll();
 return $listaCarros;
 }
-
+//consultar por id
+//cadastrar
+//alterar
+//excluir
 $sqlConsulta = "
     SELECT
         carros.id,
